@@ -1,0 +1,7 @@
+:host {
+  width: 200px;
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}

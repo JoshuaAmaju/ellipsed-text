@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
+    />
+    <title>Stencil Component Starter</title>
+
+    <script type="module" src="/build/ellipsed-text.esm.js"></script>
+    <script nomodule src="/build/ellipsed-text.js"></script>
+
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        height: 100vh;
+      }
+
+      nav {
+        width: 20%;
+        height: 100%;
+        display: flex;
+        transition: 0.25s;
+        background: #ccc;
+        align-items: flex-start;
+      }
+
+      nav * + * {
+        margin-left: 1em;
+      }
+
+      ellipsed-text {
+        transition: inherit;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <img
+        src="https://images.unsplash.com/photo-1558981033-0f0309284409?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
+        width="25"
+      />
+      <ellipsed-text
+        >Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque, vitae
+        inventore? Totam, rem laudantium. Perferendis ut obcaecati alias
+        laboriosam molestiae quasi sint. Magni in dolorum necessitatibus
+        possimus eos deserunt suscipit?</ellipsed-text
+      >
+      <img
+        src="https://images.unsplash.com/photo-1558981033-0f0309284409?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
+        width="25"
+      />
+    </nav>
+
+    <script>
+      const nav = document.querySelector("nav");
+      const ellipsedText = nav.querySelector("ellipsed-text");
+      setInterval(() => {
+        nav.style.width = `${Math.random() * 1000}px`;
+        nav.addEventListener("transitionend", () => ellipsedText.update());
+      }, 2000);
+    </script>
+  </body>
+</html>
